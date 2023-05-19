@@ -1,5 +1,5 @@
 import { MapPin, ShoppingCart } from 'phosphor-react';
-import { NavLink } from 'react-router-dom';
+
 import {
   ActionsContent,
   CartIcon,
