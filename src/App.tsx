@@ -10,7 +10,6 @@ function App() {
       <BrowserRouter>
         <Router />
       </BrowserRouter>
-      <h1> Hello Coffee lovers</h1>
       <GlobalStyle />
     </ThemeProvider>
   );
