@@ -19,7 +19,6 @@ export const ActionsContent = styled.div`
 export const CartIcon = styled(NavLink)`
   width: 38px;
   height: 38px;
-  margin: 8px 0 0 8px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,7 +32,6 @@ export const LocationLabel = styled.button`
   width: 9rem;
   height: 2.375rem;
   border: 0;
-  margin: 8px 0 0 8px;
   border-radius: 8px;
   display: flex;
   flex-direction: row;
