@@ -25,7 +25,6 @@ export const BannerContainer = styled.div<BannerContentProps>`
   background-size: contain;
   background-size: contain;
   background-image: url(${(props) => props.backgroundImage});
-  position: absolute;
 
   img {
     width: 29.75rem;
@@ -97,5 +96,77 @@ export const BannerItem = styled.div<ItemProps>`
     border-radius: 1000px;
     padding: 6px;
     gap: 8px;
+  }
+`;
+
+export const HomeList = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0px;
+  margin-top: 5rem;
+  flex-wrap: wrap;
+
+  .labels {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 54px;
+  }
+
+  .coffeeCards {
+    display: flex;
+    flex-direction: row;
+  }
+`;
+
+export const CoffeeCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 256px;
+  height: 310px;
+  background: #f3f2f2;
+  border-radius: 6px 36px;
+
+  img {
+    width: 120px;
+    height: 120px;
+    margin-top: -20px;
+  }
+
+  .tags {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 4px;
+    width: 139px;
+    height: 21px;
+  }
+  span {
+    padding: 4px 8px;
+    background: #f1e9c9;
+    border-radius: 100px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 130%;
+    text-transform: uppercase;
+
+    /* Brand / Yellow Dark */
+
+    color: #c47f17;
   }
 `;
