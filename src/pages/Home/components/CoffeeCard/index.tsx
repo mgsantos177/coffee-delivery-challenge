@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import {
   ButtonAddToCart,
   CoffeeCardContent,
@@ -13,6 +13,7 @@ import {
 } from './styles';
 
 import { Minus, Plus, ShoppingCart } from 'phosphor-react';
+import { CoffeeContext } from '../../../../context/CoffeeContext';
 
 export interface ICoffee {
   id: string;
@@ -30,7 +31,13 @@ interface CoffeeCardProps {
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
   const { title, description, img, price, tagList } = coffee;
 
+  const { addCoffeeOnCart, coffeeOnCart } = useContext(CoffeeContext);
+
   const [amount, setAmount] = useState<number>(1);
+
+  useEffect(() => {
+    console.log(coffeeOnCart);
+  }, [coffeeOnCart]);
 
   function onDecrementCoffeeAmount() {
     setAmount((state) => {
@@ -44,6 +51,10 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
 
   function onIncrementCoffeeAmount() {
     setAmount((state) => state + 1);
+  }
+
+  function handleAddCoffeeToCart() {
+    addCoffeeOnCart(coffee, amount);
   }
 
   return (
@@ -72,7 +83,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
             <Plus />
           </button>
         </CoffeeInput>
-        <ButtonAddToCart>
+        <ButtonAddToCart onClick={handleAddCoffeeToCart}>
           <ShoppingCart size={22} weight="fill" />
         </ButtonAddToCart>
       </CoffeeFooter>

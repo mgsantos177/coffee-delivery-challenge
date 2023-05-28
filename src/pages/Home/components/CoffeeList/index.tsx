@@ -1,7 +1,7 @@
 import { CoffeeListContainer } from './styles';
 
 import expressoTradicional from '../../../../assets/coffeeImages/expresso-tradicional.svg';
-import { Minus, Plus, ShoppingCart } from 'phosphor-react';
+
 import { CoffeeCard, ICoffee } from '../CoffeeCard';
 
 export function CoffeeList() {
