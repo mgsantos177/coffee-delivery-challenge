@@ -6,115 +6,114 @@ export const CheckoutContainer = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   padding: 40px;
+
+  h3 {
+    font-family: 'Baloo 2';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+
+    display: flex;
+    align-items: center;
+
+    color: #403937;
+  }
 `;
 
-export const FormContainer = styled.div`
+export const SelectedCoffeesContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
   gap: 2rem;
 `;
 
-export const FormHeader = styled.div`
+export const SelectedCoffeesContent = styled.div`
+  align-items: flex-start;
+  padding: 40px;
+  gap: 24px;
+  width: 448px;
+  height: 498px;
+  background: #f3f2f2;
+  border-radius: 6px 44px;
+`;
+
+export const CoffeeCard = styled.div`
   display: flex;
-  justify-content: flex-start;
-  gap: 0.5rem;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 20px;
 
-  svg {
-    color: ${(props) => props.theme['yellow-700']};
-  }
+  width: 255px;
+  height: 64px;
 
-  h4 {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 130%;
+  .info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 20px;
 
-    color: ${(props) => props.theme['gray-800']};
-  }
+    width: 255px;
+    height: 64px;
 
-  p {
-    color: ${(props) => props.theme['gray-700']};
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    word-wrap: wrap;
+    img {
+      width: 64px;
+      height: 64px;
+    }
   }
 `;
 
-export const FormContent = styled.div`
+export const CoffeeCardDetails = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
-  gap: 1rem;
-`;
+  gap: 8px;
 
-export const AddressInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  border-radius: 6px;
-  padding: 2.5rem;
-  background-color: ${(props) => props.theme['gray-200']};
+  p {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    color: #403937;
+  }
 
-  .input-together {
+  .actions {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
   }
 `;
 
-interface InputProps {
-  widthSize: string;
-}
-export const AddressInput = styled.input<InputProps>`
-  background-color: ${(props) => props.theme['gray-300']};
-  border: 1px solid ${(props) => props.theme['gray-400']};
-  padding: 0.75rem;
-  font-size: 0.875rem;
-  color: ${(props) => props.theme['gray-700']};
-  border-radius: 4px;
-  width: ${(props) => props.widthSize};
-
-  &:focus {
-    outline: 1px solid ${(props) => props.theme['yellow-700']};
-  }
-`;
-
-export const PaymentContent = styled.div`
-  background-color: ${(props) => props.theme['gray-200']};
-  margin-top: 0.75rem;
+export const RemoveCoffeeButton = styled.button`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 8px;
+  gap: 4px;
+  width: 91px;
+  height: 2.375rem;
+  border: none;
+  background: #e6e5e5;
   border-radius: 6px;
-  padding: 2.5rem;
-  gap: 32px;
-  width: 100%;
 
-  .payment-header {
-    display: flex;
-    justify-content: flex-start;
-    gap: 0.5rem;
+  svg {
+    color: #8047f8;
+  }
 
-    svg {
-      color: ${(props) => props.theme['purple-500']};
-    }
+  p {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
 
-    h4 {
-      font-size: 1rem;
-      line-height: 130%;
-      font-weight: 400;
-      color: ${(props) => props.theme['gray-800']};
-    }
+    text-transform: uppercase;
 
-    p {
-      color: ${(props) => props.theme['gray-700']};
-      line-height: 130%;
-      font-size: 0.875rem;
-    }
+    color: #574f4d;
   }
 `;
-
-export const PaymentOptions = styled.input``;

@@ -1,18 +1,17 @@
 import { useContext } from 'react';
 import { CoffeeContext } from '../../context/CoffeeContext';
 import {
-  AddressInfo,
-  AddressInput,
   CheckoutContainer,
-  FormContainer,
-  FormContent,
-  FormHeader,
-  PaymentContent,
-  PaymentOptions,
+  CoffeeCard,
+  CoffeeCardDetails,
+  RemoveCoffeeButton,
+  SelectedCoffeesContainer,
+  SelectedCoffeesContent,
 } from './styles';
-import { CurrencyDollar, MapPinLine } from 'phosphor-react';
+import { CurrencyDollar, MapPinLine, Minus, Plus, Trash } from 'phosphor-react';
 import { FormProvider, useForm, useFormContext } from 'react-hook-form';
 import { AddressForm } from './AddressForm';
+import { CoffeeInput } from '../Home/components/CoffeeCard/styles';
 
 interface NewCycleFormData {
   weather: string;
@@ -27,16 +26,42 @@ export function Checkout() {
     },
   });
 
+  console.log(coffeeOnCart);
+
   return (
     <CheckoutContainer>
       <FormProvider {...newCycleForm}>
         <AddressForm />
-        <div>
-          <h4>Cafés selecionados</h4>
-          {coffeeOnCart.map((coffee) => (
-            <div key={coffee.id}>{coffee.description}</div>
-          ))}
-        </div>
+        <SelectedCoffeesContainer>
+          <h3>Cafés selecionados</h3>
+          <SelectedCoffeesContent>
+            {coffeeOnCart.map((coffee) => (
+              <CoffeeCard key={coffee.id}>
+                <div className="info">
+                  <img src={coffee.img} alt="" />
+                  <CoffeeCardDetails>
+                    <p>{coffee.title}</p>
+                    <div className="actions">
+                      <CoffeeInput>
+                        <button onClick={() => {}} type="button">
+                          <Minus />
+                        </button>
+                        <span>{coffee.amount}</span>
+                        <button onClick={() => {}} type="button">
+                          <Plus />
+                        </button>
+                      </CoffeeInput>
+                      <RemoveCoffeeButton onClick={() => {}}>
+                        <Trash />
+                        <p>REMOVER</p>
+                      </RemoveCoffeeButton>
+                    </div>
+                  </CoffeeCardDetails>
+                </div>
+              </CoffeeCard>
+            ))}
+          </SelectedCoffeesContent>
+        </SelectedCoffeesContainer>
       </FormProvider>
     </CheckoutContainer>
   );

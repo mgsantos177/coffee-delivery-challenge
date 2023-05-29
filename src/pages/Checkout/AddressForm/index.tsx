@@ -1,4 +1,4 @@
-import { CurrencyDollar, MapPinLine } from 'phosphor-react';
+import { CurrencyDollar, MapPinLine, Money } from 'phosphor-react';
 import {
   AddressInfo,
   AddressInput,
@@ -6,6 +6,7 @@ import {
   FormContent,
   FormHeader,
   PaymentContent,
+  PaymentOptions,
 } from './styles';
 import { useFormContext } from 'react-hook-form';
 
@@ -46,35 +47,47 @@ export function AddressForm() {
             </p>
           </div>
         </div>
-        <div className="payment-options">
-          <label htmlFor="field-rain" className="radioButton">
+        <PaymentOptions>
+          <label htmlFor="credit-card" className="radio-label">
             <input
-              {...register('weather')}
+              {...register('selectPayment')}
+              type="radio"
+              value="credit"
+              id="credit-card"
+              className="radio-input"
+            />
+            <span className="radio-custom">
+              <Money className="radio-icon" />
+              <p className="radio-text">Cartão de Crédito</p>
+            </span>
+          </label>
+          <label htmlFor="debit-card" className="radio-label">
+            <input
+              {...register('selectPayment')}
+              type="radio"
+              value="debit"
+              id="debit-card"
+              className="radio-input"
+            />
+            <span className="radio-custom">
+              <Money className="radio-icon" />
+              <p className="radio-text">Cartão de Débito</p>
+            </span>
+          </label>
+          <label htmlFor="cash" className="radio-label">
+            <input
+              {...register('selectPayment')}
               type="radio"
               value="rain"
-              id="field-rain"
+              id="cash"
+              className="radio-input"
             />
-            Rain
+            <span className="radio-custom">
+              <Money className="radio-icon" />
+              <p className="radio-text">Dinheiro</p>
+            </span>
           </label>
-          <label htmlFor="field-wind" className="radioButton">
-            <input
-              {...register('weather')}
-              type="radio"
-              value="wind"
-              id="field-wind"
-            />
-            Lots of wind
-          </label>
-          <label htmlFor="field-sun" className="radioButton">
-            <input
-              {...register('weather')}
-              type="radio"
-              value="sun"
-              id="field-sun"
-            />
-            Sunny
-          </label>
-        </div>
+        </PaymentOptions>
       </PaymentContent>
     </FormContainer>
   );
