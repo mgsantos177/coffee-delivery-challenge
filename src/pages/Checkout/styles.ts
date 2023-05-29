@@ -35,17 +35,69 @@ export const SelectedCoffeesContent = styled.div`
   height: 498px;
   background: #f3f2f2;
   border-radius: 6px 44px;
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 12px;
+
+    div {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    span {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 130%;
+      color: #574f4d;
+    }
+
+    h3 {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 130%;
+      color: #403937;
+    }
+
+    button {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      padding: 12px 8px;
+      gap: 4px;
+      width: 368px;
+      height: 46px;
+      background: #dbac2c;
+      border-radius: 6px;
+
+      color: #ffffff;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+  }
 `;
 
 export const CoffeeCard = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0px;
-  gap: 20px;
-
-  width: 255px;
-  height: 64px;
+  justify-content: space-between;
+  padding: 0.5rem;
 
   .info {
     display: flex;
@@ -60,6 +112,16 @@ export const CoffeeCard = styled.div`
     img {
       width: 64px;
       height: 64px;
+    }
+  }
+
+  .price {
+    h4 {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 130%;
     }
   }
 `;
@@ -116,4 +178,11 @@ export const RemoveCoffeeButton = styled.button`
 
     color: #574f4d;
   }
+`;
+
+export const Divider = styled.div`
+  width: 368px;
+  height: 0px;
+  border: 1px solid #e6e5e5;
+  margin: 24px 0;
 `;

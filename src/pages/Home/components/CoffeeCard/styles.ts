@@ -73,6 +73,14 @@ export const CoffeeFooter = styled.div`
     align-items: center;
     justify-content: center;
   }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+  }
 `;
 
 export const CurrencySymbol = styled.p`
@@ -97,7 +105,6 @@ export const CoffeeInput = styled.div`
   height: 2.375rem;
   padding: 0.5rem;
   gap: 0.25rem;
-  margin: 0 0.5rem 0 2rem;
 
   button {
     border: 0;

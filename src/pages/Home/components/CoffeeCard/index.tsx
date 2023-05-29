@@ -74,18 +74,20 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
           <CurrencySymbol>R$</CurrencySymbol>
           <CoffeePrice>{price}</CoffeePrice>
         </div>
-        <CoffeeInput>
-          <button onClick={onDecrementCoffeeAmount} type="button">
-            <Minus />
-          </button>
-          <span>{amount}</span>
-          <button onClick={onIncrementCoffeeAmount} type="button">
-            <Plus />
-          </button>
-        </CoffeeInput>
-        <ButtonAddToCart onClick={handleAddCoffeeToCart}>
-          <ShoppingCart size={22} weight="fill" />
-        </ButtonAddToCart>
+        <div className="actions">
+          <CoffeeInput>
+            <button onClick={onDecrementCoffeeAmount} type="button">
+              <Minus />
+            </button>
+            <span>{amount}</span>
+            <button onClick={onIncrementCoffeeAmount} type="button">
+              <Plus />
+            </button>
+          </CoffeeInput>
+          <ButtonAddToCart onClick={handleAddCoffeeToCart}>
+            <ShoppingCart size={22} weight="fill" />
+          </ButtonAddToCart>
+        </div>
       </CoffeeFooter>
     </CoffeeCardContent>
   );
