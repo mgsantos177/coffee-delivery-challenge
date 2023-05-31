@@ -2,24 +2,21 @@ import { useContext } from 'react';
 import { CoffeeContext } from '../../context/CoffeeContext';
 import {
   CheckoutContainer,
-  CoffeeCard,
-  CoffeeCardDetails,
   Divider,
-  RemoveCoffeeButton,
   SelectedCoffeesContainer,
   SelectedCoffeesContent,
+  SelectedCoffeesFooter,
 } from './styles';
-import { Minus, Plus, Trash } from 'phosphor-react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { AddressForm } from './AddressForm';
-import { CoffeeInput } from '../Home/components/CoffeeCard/styles';
+import { CoffeeOnCart } from './CoffeeOnCart';
 
 interface NewCycleFormData {
   weather: string;
 }
 
 export function Checkout() {
-  const { coffeeOnCart } = useContext(CoffeeContext);
+  const { coffeeOnCart, removeCoffeeFromCart } = useContext(CoffeeContext);
 
   const newCycleForm = useForm<NewCycleFormData>({
     defaultValues: {
@@ -38,36 +35,11 @@ export function Checkout() {
           <SelectedCoffeesContent>
             {coffeeOnCart.map((coffee) => (
               <>
-                <CoffeeCard key={coffee.id}>
-                  <div className="info">
-                    <img src={coffee.img} alt="" />
-                    <CoffeeCardDetails>
-                      <p>{coffee.title}</p>
-                      <div className="actions">
-                        <CoffeeInput>
-                          <button onClick={() => {}} type="button">
-                            <Minus />
-                          </button>
-                          <span>{coffee.amount}</span>
-                          <button onClick={() => {}} type="button">
-                            <Plus />
-                          </button>
-                        </CoffeeInput>
-                        <RemoveCoffeeButton onClick={() => {}}>
-                          <Trash />
-                          <p>REMOVER</p>
-                        </RemoveCoffeeButton>
-                      </div>
-                    </CoffeeCardDetails>
-                  </div>
-                  <div className="price">
-                    <h4>R$ {coffee.price}</h4>
-                  </div>
-                </CoffeeCard>
+                <CoffeeOnCart key={coffee.id} coffee={coffee} />
                 <Divider />
               </>
             ))}
-            <footer>
+            <SelectedCoffeesFooter>
               <div>
                 <span>Total dos itens</span>
                 <span>R$ 10</span>
@@ -81,7 +53,7 @@ export function Checkout() {
                 <h3>R$ 10</h3>
               </div>
               <button> Confirmar pedido</button>
-            </footer>
+            </SelectedCoffeesFooter>
           </SelectedCoffeesContent>
         </SelectedCoffeesContainer>
       </FormProvider>
