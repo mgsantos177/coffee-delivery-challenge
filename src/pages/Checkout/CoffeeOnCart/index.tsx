@@ -3,6 +3,7 @@ import { CoffeeInput } from '../../Home/components/CoffeeList/styles';
 import { CoffeeCard, CoffeeCardDetails, RemoveCoffeeButton } from './styles';
 import { CoffeeContext, ICoffeeOnCart } from '../../../context/CoffeeContext';
 import { useContext, useEffect, useState } from 'react';
+import { Controller } from 'react-hook-form';
 
 interface ICoffeeOnCartProps {
   coffee: ICoffeeOnCart;
@@ -48,6 +49,7 @@ export function CoffeeOnCart({ coffee }: ICoffeeOnCartProps) {
                 <Plus />
               </button>
             </CoffeeInput>
+
             <RemoveCoffeeButton onClick={() => removeCoffeeFromCart(coffee.id)}>
               <Trash />
               <p>REMOVER</p>

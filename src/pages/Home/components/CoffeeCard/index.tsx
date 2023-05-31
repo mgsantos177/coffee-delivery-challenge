@@ -31,13 +31,9 @@ interface CoffeeCardProps {
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
   const { title, description, img, price, tagList } = coffee;
 
-  const { addCoffeeOnCart, coffeeOnCart } = useContext(CoffeeContext);
+  const { addCoffeeOnCart } = useContext(CoffeeContext);
 
   const [amount, setAmount] = useState<number>(1);
-
-  useEffect(() => {
-    console.log(coffeeOnCart);
-  }, [coffeeOnCart]);
 
   function onDecrementCoffeeAmount() {
     setAmount((state) => {

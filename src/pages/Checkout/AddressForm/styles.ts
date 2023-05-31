@@ -27,6 +27,11 @@ export const FormContainer = styled.div`
   }
 `;
 
+export const InputErrorMessageText = styled.span`
+  font-size: 0.75rem;
+  color: ${(props) => props.theme.error};
+`;
+
 export const FormHeader = styled.div`
   display: flex;
   justify-content: flex-start;

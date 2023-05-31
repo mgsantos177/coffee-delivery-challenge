@@ -1,22 +1,24 @@
 import { styled } from 'styled-components';
 
 export const CheckoutContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 40px;
-
-  h3 {
-    font-family: 'Baloo 2';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-
+  form {
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px;
 
-    color: #403937;
+    h3 {
+      font-family: 'Baloo 2';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+
+      display: flex;
+      align-items: center;
+
+      color: #403937;
+    }
   }
 `;
 
@@ -82,6 +84,8 @@ export const SelectedCoffeesFooter = styled.footer`
     height: 46px;
     background: #dbac2c;
     border-radius: 6px;
+    cursor: pointer;
+    transition: 0.5ms;
 
     color: #ffffff;
     font-family: 'Roboto';
@@ -89,6 +93,10 @@ export const SelectedCoffeesFooter = styled.footer`
     font-weight: 700;
     font-size: 14px;
     text-transform: uppercase;
+
+    &:hover {
+      background: yellow;
+    }
   }
 `;
 
