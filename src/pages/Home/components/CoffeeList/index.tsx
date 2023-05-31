@@ -1,28 +1,11 @@
 import { CoffeeListContainer } from './styles';
 
 import expressoTradicional from '../../../../assets/coffeeImages/expresso-tradicional.svg';
-
+import { coffeeData } from '../../../../data/coffees';
 import { CoffeeCard, ICoffee } from '../CoffeeCard';
 
 export function CoffeeList() {
-  const data: ICoffee[] = [
-    {
-      id: '1',
-      title: 'Expresso tradicional',
-      description: 'O tradicional café feito com água quente e grãos moídos',
-      price: 9.9,
-      img: expressoTradicional,
-      tagList: ['Tradicional'],
-    },
-    {
-      id: '2',
-      title: 'Expresso Americano',
-      description: 'Expresso diluído, menos intenso que o tradicional',
-      price: 8.7,
-      img: expressoTradicional,
-      tagList: ['Tradicional'],
-    },
-  ];
+  const data: ICoffee[] = coffeeData;
 
   return (
     <CoffeeListContainer>
