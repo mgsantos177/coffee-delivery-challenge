@@ -33,25 +33,20 @@ const addressFormSchema = zod.object({
     .string()
     .min(2, 'Insira o UF do endereço de entrega')
     .max(2, 'Insira o UF do endereço de entrega'),
-  paymentOptions: zod.enum(['credit-card', 'debit-card', 'cash']),
+  paymentOption: zod.enum(['credit-card', 'debit-card', 'cash']),
 });
 
 type AddressFormInputs = zod.infer<typeof addressFormSchema>;
 
 export function Checkout() {
-  const { coffeeOnCart } = useContext(CoffeeContext);
+  const { coffeeOnCart, addressData, setAddressData } =
+    useContext(CoffeeContext);
 
   const newCycleForm = useForm<AddressFormInputs>({
     resolver: zodResolver(addressFormSchema),
     defaultValues: {
-      paymentOptions: 'debit-card',
-      cep: '',
-      city: '',
-      complement: '',
-      district: '',
-      number: '',
-      street: '',
-      UF: '',
+      ...addressData,
+      paymentOption: 'debit-card',
     },
   });
 
@@ -59,6 +54,7 @@ export function Checkout() {
 
   function handleAddAddress(data: AddressFormInputs) {
     console.log(data);
+    setAddressData(data);
   }
 
   return (

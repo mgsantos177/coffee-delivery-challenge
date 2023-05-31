@@ -69,6 +69,11 @@ export const FormContent = styled.div`
   gap: 1rem;
 `;
 
+export const ErrorMessage = styled.div`
+  font-size: 12px;
+  color: ${(props) => props.theme.red};
+`;
+
 export const AddressInfo = styled.div`
   display: flex;
   flex-direction: column;

@@ -11,11 +11,24 @@ export interface ICoffeeOnCart {
   amount: number;
 }
 
+interface AddressData {
+  complement?: string | undefined;
+  number: string;
+  cep: string;
+  street: string;
+  district: string;
+  city: string;
+  UF: string;
+  paymentOption: 'credit-card' | 'debit-card' | 'cash';
+}
+
 interface CoffeeContextType {
   addCoffeeOnCart: (availableCoffee: ICoffee, amount: number) => void;
   removeCoffeeFromCart: (id: string) => void;
   updateCoffeeAmount: (id: string, amount: number) => void;
   coffeeOnCart: ICoffeeOnCart[];
+  addressData: AddressData;
+  setAddressData: React.Dispatch<React.SetStateAction<AddressData>>;
 }
 
 export const CoffeeContext = createContext({} as CoffeeContextType);
@@ -26,6 +39,17 @@ interface ICoffeeContextProvider {
 
 export function CoffeeContextProvider({ children }: ICoffeeContextProvider) {
   const [coffeeOnCart, setCoffeeOnCart] = useState<ICoffeeOnCart[]>([]);
+
+  const [addressData, setAddressData] = useState<AddressData>({
+    cep: '',
+    city: '',
+    district: '',
+    number: '',
+    paymentOption: 'credit-card',
+    street: '',
+    UF: '',
+    complement: '',
+  });
 
   function addCoffeeOnCart(coffee: ICoffee, amount: number) {
     setCoffeeOnCart((state) => {
@@ -64,6 +88,8 @@ export function CoffeeContextProvider({ children }: ICoffeeContextProvider) {
         coffeeOnCart,
         removeCoffeeFromCart,
         updateCoffeeAmount,
+        addressData,
+        setAddressData,
       }}
     >
       {children}
