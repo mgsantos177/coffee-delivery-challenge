@@ -3,14 +3,28 @@ import { MapPin, ShoppingCart } from 'phosphor-react';
 import {
   ActionsContent,
   CartIcon,
+  Counter,
   HeaderContainer,
   LocationLabel,
 } from './styles';
 
 import logoCoffeeDelivery from '../../assets/logo-coffee-delivery.svg';
 import { NavLink } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { CoffeeContext } from '../../context/CoffeeContext';
 
 export function Header() {
+  const { coffeeOnCart } = useContext(CoffeeContext);
+  const [quantity, setQuantity] = useState(0);
+
+  useEffect(() => {
+    setQuantity(
+      coffeeOnCart.reduce((total, coffee) => {
+        return total + coffee.amount;
+      }, 0),
+    );
+  }, [coffeeOnCart]);
+
   return (
     <HeaderContainer>
       <NavLink to="/">
@@ -26,7 +40,8 @@ export function Header() {
         </LocationLabel>
 
         <CartIcon to="/carrinho" title="Carrinho">
-          <ShoppingCart size={32} weight="fill" />
+          <ShoppingCart size={22} weight="fill" />
+          <Counter>{quantity}</Counter>
         </CartIcon>
       </ActionsContent>
     </HeaderContainer>
