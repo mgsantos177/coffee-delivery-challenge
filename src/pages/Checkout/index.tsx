@@ -41,7 +41,7 @@ type AddressFormInputs = zod.infer<typeof addressFormSchema>;
 
 export function Checkout() {
   const [total, setTotal] = useState(0);
-  const { coffeeOnCart, addressData, setAddressData } =
+  const { coffeeOnCart, addressData, setAddressData, clearCart } =
     useContext(CoffeeContext);
 
   const navigate = useNavigate();
@@ -56,8 +56,8 @@ export function Checkout() {
   const { handleSubmit } = newCycleForm;
 
   function handleAddAddress(data: AddressFormInputs) {
-    console.log(data);
     setAddressData(data);
+    clearCart();
     navigate('/sucesso');
   }
 

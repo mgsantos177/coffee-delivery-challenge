@@ -15,6 +15,19 @@ export function SuccessPage() {
   const { street, UF, cep, city, district, number, paymentOption, complement } =
     addressData;
 
+  function formattedPaymentMethod(
+    paymentOption: typeof addressData.paymentOption,
+  ) {
+    switch (paymentOption) {
+      case 'cash':
+        return 'Dinheiro';
+      case 'credit-card':
+        return 'Cartão de crédito';
+      case 'debit-card':
+        return 'Cartão de débito';
+    }
+  }
+
   return (
     <SuccessPageContainer>
       <h1>Uhu! Pedido confirmado</h1>
@@ -36,7 +49,7 @@ export function SuccessPage() {
             <MapPin />
             <div>
               <p>Pagamento na entrega</p>
-              <p>{paymentOption}</p>
+              <p>{formattedPaymentMethod(paymentOption)}</p>
             </div>
           </OrdemInfoItem>
         </OrderInfo>

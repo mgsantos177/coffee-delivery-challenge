@@ -82,7 +82,7 @@ export const SelectedCoffeesFooter = styled.footer`
     gap: 4px;
     width: 368px;
     height: 46px;
-    background: #dbac2c;
+    background: ${(props) => props.theme['yellow-500']};
     border-radius: 6px;
     cursor: pointer;
     transition: 0.5ms;
@@ -95,11 +95,10 @@ export const SelectedCoffeesFooter = styled.footer`
     text-transform: uppercase;
 
     &:hover {
-      background: yellow;
+      background: ${(props) => props.theme['yellow-700']};
     }
 
     &:disabled {
-      background: #dbac2c;
       opacity: 60%;
       cursor: not-allowed;
     }

@@ -29,6 +29,7 @@ interface CoffeeContextType {
   coffeeOnCart: ICoffeeOnCart[];
   addressData: AddressData;
   setAddressData: React.Dispatch<React.SetStateAction<AddressData>>;
+  clearCart: () => void;
 }
 
 export const CoffeeContext = createContext({} as CoffeeContextType);
@@ -101,10 +102,15 @@ export function CoffeeContextProvider({ children }: ICoffeeContextProvider) {
     });
   }
 
+  function clearCart() {
+    setCoffeeOnCart([]);
+  }
+
   return (
     <CoffeeContext.Provider
       value={{
         addCoffeeOnCart,
+        clearCart,
         coffeeOnCart,
         removeCoffeeFromCart,
         updateCoffeeAmount,
