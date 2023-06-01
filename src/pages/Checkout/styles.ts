@@ -97,6 +97,12 @@ export const SelectedCoffeesFooter = styled.footer`
     &:hover {
       background: yellow;
     }
+
+    &:disabled {
+      background: #dbac2c;
+      opacity: 60%;
+      cursor: not-allowed;
+    }
   }
 `;
 

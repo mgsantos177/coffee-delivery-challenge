@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, useForm } from 'react-hook-form';
 import * as zod from 'zod';
@@ -13,6 +13,7 @@ import {
 
 import { AddressForm } from './AddressForm';
 import { CoffeeOnCart } from './CoffeeOnCart';
+import { useNavigate } from 'react-router-dom';
 
 const addressFormSchema = zod.object({
   cep: zod
@@ -39,9 +40,11 @@ const addressFormSchema = zod.object({
 type AddressFormInputs = zod.infer<typeof addressFormSchema>;
 
 export function Checkout() {
+  const [total, setTotal] = useState(0);
   const { coffeeOnCart, addressData, setAddressData } =
     useContext(CoffeeContext);
 
+  const navigate = useNavigate();
   const newCycleForm = useForm<AddressFormInputs>({
     resolver: zodResolver(addressFormSchema),
     defaultValues: {
@@ -55,7 +58,20 @@ export function Checkout() {
   function handleAddAddress(data: AddressFormInputs) {
     console.log(data);
     setAddressData(data);
+    navigate('/sucesso');
   }
+
+  useEffect(() => {
+    setTotal(
+      coffeeOnCart.reduce((total, product) => {
+        return total + product.price * product.amount;
+      }, 0),
+    );
+  }, [total, coffeeOnCart]);
+
+  const deliveryTax = 3.5;
+
+  const isConfirmButtonDisabled = total === 0;
 
   return (
     <CheckoutContainer>
@@ -74,17 +90,20 @@ export function Checkout() {
               <SelectedCoffeesFooter>
                 <div>
                   <span>Total dos itens</span>
-                  <span>R$ 10</span>
+                  <span>R$ {total}</span>
                 </div>
                 <div>
                   <span>Entrega</span>
-                  <span>R$ 0</span>
+                  <span>R$ {!isConfirmButtonDisabled ? deliveryTax : 0}</span>
                 </div>
                 <div>
                   <h3>Total</h3>
-                  <h3>R$ 10</h3>
+                  <h3>R$ {total ? total + deliveryTax : 0}</h3>
                 </div>
-                <button type="submit"> Confirmar pedido</button>
+                <button type="submit" disabled={isConfirmButtonDisabled}>
+                  {' '}
+                  Confirmar pedido
+                </button>
               </SelectedCoffeesFooter>
             </SelectedCoffeesContent>
           </SelectedCoffeesContainer>
