@@ -52,17 +52,37 @@ export function CoffeeContextProvider({ children }: ICoffeeContextProvider) {
   });
 
   function addCoffeeOnCart(coffee: ICoffee, amount: number) {
-    setCoffeeOnCart((state) => {
-      const addNewCoffee = [
-        {
-          ...coffee,
-          amount,
-        },
-        ...state,
-      ];
+    const coffeeIndex = coffeeOnCart.findIndex(
+      (coffeeOnCart) => coffeeOnCart.id === coffee.id,
+    );
 
-      return addNewCoffee;
-    });
+    if (coffeeIndex !== -1) {
+      setCoffeeOnCart((state) => {
+        const addNewCoffee = state.map((coffee, index) => {
+          if (index === coffeeIndex) {
+            return {
+              ...coffee,
+              amount: coffee.amount + amount,
+            };
+          }
+          return coffee;
+        });
+
+        return addNewCoffee;
+      });
+    } else {
+      setCoffeeOnCart((state) => {
+        const addNewCoffee = [
+          {
+            ...coffee,
+            amount,
+          },
+          ...state,
+        ];
+
+        return addNewCoffee;
+      });
+    }
   }
 
   function removeCoffeeFromCart(id: string) {
