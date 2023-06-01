@@ -80,7 +80,7 @@ export function AddressForm() {
               name="number"
               render={({ field, fieldState }) => {
                 return (
-                  <>
+                  <div>
                     <AddressInput
                       placeholder="Número"
                       widthSize={'12.5rem'}
@@ -93,7 +93,7 @@ export function AddressForm() {
                     {fieldState.error && (
                       <ErrorMessage>{fieldState.error.message}</ErrorMessage>
                     )}
-                  </>
+                  </div>
                 );
               }}
             />
@@ -102,7 +102,7 @@ export function AddressForm() {
               name="complement"
               render={({ field, fieldState }) => {
                 return (
-                  <>
+                  <div>
                     <AddressInput
                       placeholder="Complemento"
                       widthSize={'21.75rem'}
@@ -116,7 +116,7 @@ export function AddressForm() {
                     {fieldState.error && (
                       <ErrorMessage>{fieldState.error.message}</ErrorMessage>
                     )}
-                  </>
+                  </div>
                 );
               }}
             />
@@ -127,7 +127,7 @@ export function AddressForm() {
               name="district"
               render={({ field, fieldState }) => {
                 return (
-                  <>
+                  <div>
                     <AddressInput
                       placeholder="Bairro"
                       widthSize={'12.5rem'}
@@ -141,7 +141,7 @@ export function AddressForm() {
                     {fieldState.error && (
                       <ErrorMessage>{fieldState.error.message}</ErrorMessage>
                     )}
-                  </>
+                  </div>
                 );
               }}
             />
@@ -150,7 +150,7 @@ export function AddressForm() {
               name="city"
               render={({ field, fieldState }) => {
                 return (
-                  <>
+                  <div>
                     <AddressInput
                       placeholder="Cidade"
                       widthSize={'17.25rem'}
@@ -164,7 +164,7 @@ export function AddressForm() {
                     {fieldState.error && (
                       <ErrorMessage>{fieldState.error.message}</ErrorMessage>
                     )}
-                  </>
+                  </div>
                 );
               }}
             />
@@ -174,7 +174,7 @@ export function AddressForm() {
               name="UF"
               render={({ field, fieldState }) => {
                 return (
-                  <>
+                  <div>
                     <AddressInput
                       placeholder="UF"
                       widthSize={'3.75rem'}
@@ -188,7 +188,7 @@ export function AddressForm() {
                     {fieldState.error && (
                       <ErrorMessage>{fieldState.error.message}</ErrorMessage>
                     )}
-                  </>
+                  </div>
                 );
               }}
             />
