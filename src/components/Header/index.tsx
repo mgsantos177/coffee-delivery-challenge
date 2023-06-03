@@ -14,7 +14,7 @@ import { useContext, useEffect, useState } from 'react';
 import { CoffeeContext } from '../../context/CoffeeContext';
 
 export function Header() {
-  const { coffeeOnCart } = useContext(CoffeeContext);
+  const { coffeeOnCart, addressData } = useContext(CoffeeContext);
   const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export function Header() {
       <ActionsContent>
         <LocationLabel>
           <MapPin size={27} weight="fill" />
-          São Paulo, SP
+          {addressData.city && `${addressData.city} - ${addressData.UF}`}
         </LocationLabel>
 
         <CartIcon to="/carrinho" title="Carrinho">

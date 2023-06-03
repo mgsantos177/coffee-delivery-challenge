@@ -1,6 +1,5 @@
 import { CoffeeListContainer } from './styles';
 
-import expressoTradicional from '../../../../assets/coffeeImages/expresso-tradicional.svg';
 import { coffeeData } from '../../../../data/coffees';
 import { CoffeeCard, ICoffee } from '../CoffeeCard';
 

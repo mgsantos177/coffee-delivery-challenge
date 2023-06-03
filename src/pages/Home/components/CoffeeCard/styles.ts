@@ -8,6 +8,11 @@ export const CoffeeCardContent = styled.div`
   background: ${(props) => props.theme['gray-200']};
   border-radius: 0.375rem 2.25rem;
   padding: 1.5rem 1.25rem;
+  margin: auto 1rem;
+
+  @media (max-width: 1048px) {
+    margin: auto 0.3rem;
+  }
 `;
 
 export const CoffeeInfo = styled.div`

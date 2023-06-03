@@ -7,6 +7,7 @@ export const CheckoutContainer = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     padding: 40px;
+    flex-wrap: wrap;
 
     h3 {
       font-family: 'Baloo 2';
@@ -19,6 +20,10 @@ export const CheckoutContainer = styled.div`
 
       color: #403937;
     }
+
+    @media (max-width: 1400px) {
+      padding: 1rem;
+    }
   }
 `;
 
@@ -27,6 +32,10 @@ export const SelectedCoffeesContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 2rem;
+
+  @media (max-width: 1320px) {
+    margin-top: 2.5rem;
+  }
 `;
 
 export const SelectedCoffeesContent = styled.div`

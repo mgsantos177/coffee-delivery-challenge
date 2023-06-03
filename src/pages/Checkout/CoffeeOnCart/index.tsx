@@ -1,5 +1,5 @@
 import { Minus, Plus, Trash } from 'phosphor-react';
-import { CoffeeInput } from '../../Home/components/CoffeeList/styles';
+import { CoffeeInput } from '../../Home/components/CoffeeCard/styles';
 import { CoffeeCard, CoffeeCardDetails, RemoveCoffeeButton } from './styles';
 import { CoffeeContext, ICoffeeOnCart } from '../../../context/CoffeeContext';
 import { useContext, useEffect, useState } from 'react';

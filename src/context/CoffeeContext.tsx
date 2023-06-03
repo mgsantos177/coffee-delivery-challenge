@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { ICoffee } from '../pages/Home/components/CoffeeCard';
 
 export interface ICoffeeOnCart {
@@ -28,7 +28,7 @@ interface CoffeeContextType {
   updateCoffeeAmount: (id: string, amount: number) => void;
   coffeeOnCart: ICoffeeOnCart[];
   addressData: AddressData;
-  setAddressData: React.Dispatch<React.SetStateAction<AddressData>>;
+  addAddress: (addressData: AddressData) => void;
   clearCart: () => void;
 }
 
@@ -51,6 +51,29 @@ export function CoffeeContextProvider({ children }: ICoffeeContextProvider) {
     UF: '',
     complement: '',
   });
+
+  useEffect(() => {
+    const storedAddressAsJson = localStorage.getItem(
+      '@coffee-delivery:address-state-1.0.0',
+    );
+
+    if (storedAddressAsJson) {
+      const parsedData = JSON.parse(storedAddressAsJson);
+
+      if (parsedData as AddressData) {
+        setAddressData(parsedData);
+      }
+    }
+  }, []);
+
+  function addAddress(addressData: AddressData) {
+    setAddressData(addressData);
+
+    localStorage.setItem(
+      '@coffee-delivery:address-state-1.0.0',
+      JSON.stringify(addressData),
+    );
+  }
 
   function addCoffeeOnCart(coffee: ICoffee, amount: number) {
     const coffeeIndex = coffeeOnCart.findIndex(
@@ -115,7 +138,7 @@ export function CoffeeContextProvider({ children }: ICoffeeContextProvider) {
         removeCoffeeFromCart,
         updateCoffeeAmount,
         addressData,
-        setAddressData,
+        addAddress,
       }}
     >
       {children}

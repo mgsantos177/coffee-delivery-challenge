@@ -18,7 +18,7 @@ export const ActionsContent = styled.div`
 `;
 
 export const LocationLabel = styled.button`
-  width: 9rem;
+  max-width: 9rem;
   height: 2.375rem;
   border: 0;
   border-radius: 8px;
